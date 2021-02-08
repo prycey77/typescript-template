@@ -19,14 +19,16 @@ Here is a list of all directories and files contained in this repository and bri
 ## Main Dependencies
 
 - [TypeScript](https://www.npmjs.com/package/typescript) &mdash; used for adding static typing to JavaScript.
-- [Jest](https://www.npmjs.com/package/jest) &mdash; used for testing.
+- [Jest](https://www.npmjs.com/package/jest) &mdash; used for testing (or more specifically, [ts-jest](https://www.npmjs.com/package/ts-jest)).
 - [ESLint](https://www.npmjs.com/package/eslint) &mdash; used for linting.
 
 ## Notes
 
-- Maybe it's a good idea for our TSConfig to extend a [base TSConfig](https://github.com/tsconfig/bases/) of some sort?
+- Maybe it's a good idea for our [`tsconfig.json`](tsconfig.json) to extend a [base TSConfig](https://github.com/tsconfig/bases/) of some sort?
+- An `outDir` of `out/` is specified in [`tsconfig.json`](tsconfig.json), not sure if this is what we want?
 - What framework are we going to use for testing, I assume Jest since it's used in [looop-web-ui](https://github.com/BxLooop/looop-web-ui)?
 - Decided on CommonJS module code generation after reading [this article](https://www.tsmean.com/articles/learn-typescript/typescript-module-compiler-option/).
+- Currently, no entry point is specified in [`package.json`](package.json).
 - ESLint was configured like so:
     ```
     $ ./node_modules/.bin/eslint --init
@@ -40,3 +42,4 @@ Here is a list of all directories and files contained in this repository and bri
     ✔ What format do you want your config file to be in? · JSON
     ```
     and `"node": true` was added to the [`.eslintrc.json`](.eslintrc.json) manually afterwards.
+- Maybe we should use a `README.md` template like [this one](https://gist.github.com/PurpleBooth/109311bb0361f32d87a2) to ensure that all of our `README.md` files are well structured and useful?
