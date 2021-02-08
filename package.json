@@ -1,0 +1,27 @@
+{
+  "name": "typescript-template",
+  "version": "0.1.0",
+  "description": "A template for LOOOP TypeScript repositories",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "lint": "eslint . --ext ts,tsx",
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BxLooop/typescript-template.git"
+  },
+  "author": "Bx",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BxLooop/typescript-template/issues"
+  },
+  "homepage": "https://github.com/BxLooop/typescript-template#readme",
+  "devDependencies": {
+    "eslint": "^7.19.0",
+    "jest": "^26.6.3",
+    "typescript": "^4.1.3"
+  }
+}
