@@ -1,4 +1,7 @@
+/**
+ * A hello world function.
+ */
 export function helloWorld() {
-    let message: string = "Hello, World!";
-    console.log(message);
+  const message: string = 'Hello, World!';
+  console.log(message);
 }
