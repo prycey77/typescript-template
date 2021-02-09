@@ -6,6 +6,7 @@ A template for LOOOP TypeScript repositories.
 
 Here is a list of all directories and files contained in this repository and brief descriptions of what they are for:
 
+- [`.vscode/settings.json`](.vscode/settings.json) &mdash; defines the rules used by Visual Studio Code when editing files in this repository.
 - [`src/`](src/) &mdash; contains the source TypeScript files.
 - [`test/`](test/) &mdash; contains the TypeScript files used for testing.
 - [`.eslintignore`](.eslintignore) &mdash; lists the files and directories that should be ignored by ESLint.
