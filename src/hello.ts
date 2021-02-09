@@ -1,9 +1,8 @@
 /**
  * A hello world function.
- * @return {string} the string that was logged to the console
+ * @return {string} a nice hello world string
  */
 export function helloWorld() {
-  const message: string = 'Hello, World!';
-  console.log(message);
+  const message: string = "Hello, World!";
   return message;
 }
