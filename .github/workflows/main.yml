@@ -32,6 +32,9 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: 12.x
+      
+      # Run npm ci
+      - name: Run npm ci
         run: npm ci
       
       # Linting
