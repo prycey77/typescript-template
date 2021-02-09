@@ -11,6 +11,7 @@ Here is a list of all directories and files contained in this repository and bri
 - [`.eslintignore`](.eslintignore) &mdash; lists the files and directories that should be ignored by ESLint.
 - [`.eslintrc.json`](.eslintrc.json) &mdash; defines the rules used by ESLint for linting.
 - [`.gitignore`](.gitignore) &mdash; lists the files and directories that should be ignored and not committed by Git.
+- [`.prettierrc.js`](.prettierrc.js) &mdash; defines the rules used by the Prettier plugin for ESLint for linting.
 - [`package-lock.json`](package-lock.json) &mdash; lists the exact versions of the dependencies defined in [`package.json`](package.json) that should be installed when running `npm install`.
 - [`package.json`](package.json) &mdash; lists the minimum version of the project dependencies. Also defines the project description, author and license information, and the scripts to run via `npm`.
 - [`README.md`](README.md) &mdash; contains written information about the repository, including how to run and deploy any contained code.
@@ -24,22 +25,4 @@ Here is a list of all directories and files contained in this repository and bri
 
 ## Notes
 
-- Maybe it's a good idea for our [`tsconfig.json`](tsconfig.json) to extend a [base TSConfig](https://github.com/tsconfig/bases/) of some sort?
-- An `outDir` of `out/` is specified in [`tsconfig.json`](tsconfig.json), not sure if this is what we want?
-- What framework are we going to use for testing, I assume Jest since it's used in [looop-web-ui](https://github.com/BxLooop/looop-web-ui)?
-- Decided on CommonJS module code generation after reading [this article](https://www.tsmean.com/articles/learn-typescript/typescript-module-compiler-option/).
-- Currently, no entry point is specified in [`package.json`](package.json).
-- ESLint was configured like so:
-    ```
-    $ ./node_modules/.bin/eslint --init
-    ✔ How would you like to use ESLint? · style
-    ✔ What type of modules does your project use? · esm
-    ✔ Which framework does your project use? · none
-    ✔ Does your project use TypeScript? ·  Yes
-    ✔ Where does your code run? · browser
-    ✔ How would you like to define a style for your project? · guide
-    ✔ Which style guide do you want to follow? · google
-    ✔ What format do you want your config file to be in? · JSON
-    ```
-    and `"node": true` was added to the [`.eslintrc.json`](.eslintrc.json) manually afterwards.
 - Maybe we should use a `README.md` template like [this one](https://gist.github.com/PurpleBooth/109311bb0361f32d87a2) to ensure that all of our `README.md` files are well structured and useful?
