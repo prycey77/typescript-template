@@ -6,7 +6,8 @@
     "test": "test"
   },
   "scripts": {
-    "lint": "eslint . --ext ts,tsx",
+    "lint": "eslint . --ext ts,tsx && npx prettier -c '**/*.(js|json)'",
+    "prettier": "npx prettier -w '**/*.(js|json)'",
     "test": "npx jest"
   },
   "repository": {
