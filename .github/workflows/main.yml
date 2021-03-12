@@ -1,6 +1,6 @@
 # This file defines a simple workflow that will be used by GitHub Actions
 
-name: looop-actions
+name: Lint and test
 
 # Controls when the action will run. 
 on:
