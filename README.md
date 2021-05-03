@@ -1,6 +1,6 @@
 # TypeScript Repository Template
 
-A template for LOOOP TypeScript repositories.
+A template for LOOOP TypeScript projects.
 
 ## Repository Structure
 
@@ -11,6 +11,8 @@ Here is a list of all directories and files contained in this repository and bri
 - [`.eslintignore`](.eslintignore) &mdash; lists the files and directories that should be ignored by ESLint.
 - [`.eslintrc.json`](.eslintrc.json) &mdash; defines the rules used by ESLint for linting.
 - [`.gitignore`](.gitignore) &mdash; lists the files and directories that should be ignored and not committed by Git.
+- [`.npmignore`](.npmignore) &mdash; lists the files and directories that should not be included in the npm package for this project.
+- [`.prettierignore`](.npmignore) &mdash; lists the files and directories that should not be ignored by prettier.
 - [`.prettierrc.js`](.prettierrc.js) &mdash; defines the rules used by the Prettier plugin for ESLint for linting.
 - [`README.md`](README.md) &mdash; contains written information about the repository, including how to run and deploy any contained code.
 - [`package-lock.json`](package-lock.json) &mdash; lists the exact versions of the dependencies defined in [`package.json`](package.json) that should be installed when running `npm install`.

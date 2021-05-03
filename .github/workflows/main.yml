@@ -1,10 +1,6 @@
-# This file defines a simple workflow that will be used by GitHub Actions
-
+# Documents for Github actions: https://docs.github.com/en/actions/reference/workflow-syntax-for-github-actions
 name: Lint and test
-
-# Controls when the action will run. 
 on:
-  # Triggers the workflow on push or pull request events but only for the main branch
   push:
     branches:
     - main
@@ -12,41 +8,51 @@ on:
     branches:
     - main
 
-  # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  # This workflow contains a single job called "build"
   build:
-    # The type of runner that the job will run on
     runs-on: ubuntu-latest
 
-    # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
 
-      # Setup Node to be used in later actions
       - name: Setup Node.js
         uses: actions/setup-node@v1
         with:
-          node-version: 12.x
+          node-version: 14.x
+          registry-url: 'https://npm.pkg.github.com'
+          scope: '@bx-looop'
+
+      - name: Cache node modules
+        uses: actions/cache@v2
+        env:
+          cache-name: cache-npm-modules
+        with:
+          # npm cache files are stored in `~/.npm` on Linux/macOS
+          path: ~/.npm
+          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-build-${{ env.cache-name }}-
+            ${{ runner.os }}-build-
+            ${{ runner.os }}-
       
-      # Run npm ci
-      - name: Run npm ci
+      - name: Install dependencies
         run: npm ci
       
-      # Linting
-      - name: Use ESLint to perform linting
+      - name: Lint code
         run: npm run lint
       
-      # Tests
-      - name: Use Jest to run tests
+      - name: Run Tests
         run: npm run test
 
-      # If you wanted to run multiple commands at once you could like so:
-      # - name: Run a multi-line script
-      #   run: |
-      #     echo Add other actions to build,
-      #     echo test, and deploy your project.
+      - name: Run Build
+        run: npm run build
+
+      # Release package if we are pushing (merge to master)
+      - name: Release
+        if: ${{ github.event_name == 'push' }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: npx semantic-release
