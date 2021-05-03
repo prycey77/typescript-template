@@ -1,12 +1,7 @@
 /** https://www.typescriptlang.org/tsconfig for reference **/
 {
+  "extends": "@tsconfig/node14/tsconfig.json",
   "compilerOptions": {
-    "module": "commonjs",
-    "target": "es2020",
-
-    "strict": true,
-    "esModuleInterop": true,
-    "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
     "declaration": true,
     "outDir": "dist",
