@@ -1,20 +1,22 @@
 /** https://www.typescriptlang.org/tsconfig for reference **/
 {
   "compilerOptions": {
+    "module": "commonjs",
+    "target": "es2020",
+
     "strict": true,
     "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
     "declaration": true,
     "outDir": "dist",
     "noEmit": false,
-    "target": "es2019",
-    "module": "commonjs",
     "moduleResolution": "node",
     "sourceMap": true,
     "experimentalDecorators": true,
     "pretty": true,
     "noFallthroughCasesInSwitch": true,
     "noImplicitReturns": true,
-    "forceConsistentCasingInFileNames": true,
     "resolveJsonModule": true
   },
   "include": ["**/*.ts"],
