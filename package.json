@@ -1,44 +1,78 @@
 {
-  "name": "typescript-template",
-  "version": "0.1.0",
-  "description": "A template for LOOOP TypeScript repositories",
+  "name": "@bx-looop/typescript-template",
+  "version": "2.0.0",
+  "description": "A template for LOOOP TypeScript projects",
+  "author": "Bx",
+  "license": "UNLICENSED",
   "scripts": {
     "lint": "eslint . --ext ts,tsx && npx prettier -c '**/*.(js|json)'",
     "prettier": "npx prettier -w '**/*.(js|json)'",
-    "test": "npx jest"
+    "test": "npx jest",
+    "build": "tsc && cp .npmignore dist/ && cp package.json dist/",
+    "postversion": "cp -r package.json .."
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Bx-LOOOP/typescript-template.git"
   },
-  "author": "Bx",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://bx-looop.atlassian.net/secure/RapidBoard.jspa?projectKey=LOOOP"
-  },
-  "homepage": "https://github.com/Bx-LOOOP/typescript-template#readme",
   "jest": {
     "preset": "ts-jest",
-    "testEnvironment": "node"
+    "testEnvironment": "node",
+    "testPathIgnorePatterns": [
+      "/node_modules/",
+      "/dist/"
+    ]
   },
   "devDependencies": {
-    "@types/jest": "^26.0.20",
-    "@typescript-eslint/eslint-plugin": "^4.15.0",
-    "@typescript-eslint/parser": "^4.15.0",
-    "eslint": "^7.19.0",
+    "@semantic-release/git": "^9.0.0",
+    "@types/jest": "^26.0.23",
+    "@types/node": "^14.14.41",
+    "@typescript-eslint/eslint-plugin": "^4.22.0",
+    "@typescript-eslint/parser": "^4.22.0",
+    "eslint": "^7.25.0",
     "eslint-config-airbnb-typescript": "^12.3.1",
-    "eslint-config-prettier": "^7.2.0",
+    "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-import": "^2.22.1",
-    "eslint-plugin-jsx-a11y": "^6.4.1",
-    "eslint-plugin-prettier": "^3.3.1",
-    "eslint-plugin-react": "^7.22.0",
-    "eslint-plugin-react-hooks": "^4.2.0",
+    "eslint-plugin-prettier": "^3.4.0",
     "jest": "^26.6.3",
     "prettier": "2.2.1",
-    "ts-jest": "^26.5.0",
-    "typescript": "^4.1.3"
+    "semantic-release-plus": "^18.2.5",
+    "ts-jest": "^26.5.5",
+    "typescript": "^4.2.4"
   },
-  "dependencies": {
-    "react": "^17.0.1"
+  "dependencies": {},
+  "engines": {
+    "node": ">14.14"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
+  "release": {
+    "branches": [
+      "main"
+    ],
+    "commitPaths": [
+      ".",
+      ":(exclude)*.md"
+    ],
+    "plugins": [
+      "@semantic-release/commit-analyzer",
+      "@semantic-release/release-notes-generator",
+      [
+        "@semantic-release/npm",
+        {
+          "pkgRoot": "dist"
+        }
+      ],
+      "@semantic-release/github",
+      [
+        "@semantic-release/git",
+        {
+          "assets": [
+            "package.json"
+          ]
+        }
+      ]
+    ]
   }
 }
