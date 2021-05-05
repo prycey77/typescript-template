@@ -5,8 +5,8 @@
   "author": "Bx",
   "license": "UNLICENSED",
   "scripts": {
-    "lint": "eslint . --ext ts,tsx && npx prettier -c '**/*.(js|json)'",
-    "prettier": "npx prettier -w '**/*.(js|json)'",
+    "lint": "eslint . --ext ts,tsx && npm run prettier",
+    "prettier": "npx prettier --ignore-path .eslintignore -w '**/*.(js|json)'",
     "test": "npx jest",
     "build": "tsc && cp .npmignore dist/ && cp package.json dist/",
     "postversion": "cp -r package.json .."
