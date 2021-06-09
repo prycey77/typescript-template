@@ -1,6 +1,6 @@
 {
   "name": "@bx-looop/typescript-template",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "A template for LOOOP TypeScript projects",
   "author": "Bx",
   "license": "UNLICENSED",
@@ -16,8 +16,10 @@
     "type": "git",
     "url": "git+https://github.com/Bx-LOOOP/typescript-template.git"
   },
-  "eslintConfig": { "extends": "@bx-looop/eslint-config-bx" },
-  "prettier" : "@bx-looop/eslint-config-bx/prettier.config",
+  "eslintConfig": {
+    "extends": "@bx-looop/eslint-config-bx"
+  },
+  "prettier": "@bx-looop/eslint-config-bx/prettier.config",
   "jest": {
     "preset": "ts-jest",
     "testEnvironment": "node",
